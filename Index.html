@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anushka Dissanayake — Career Coaching &amp; Mentoring</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1B2D;
+    --ink-soft:#1B2C45;
+    --paper:#F3EEE2;
+    --paper-dim:#E9E2D2;
+    --brass:#C89B5C;
+    --brass-soft:#dcbb8a;
+    --teal:#52766B;
+    --text-on-paper:#1C1F26;
+    --text-on-paper-dim:#565A63;
+    --text-on-ink:#EDE7D8;
+    --text-on-ink-dim:#9BA8BE;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text-on-paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:450;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.06em;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(243,238,226,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(15,27,45,0.08);
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+    max-width:1120px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  .brand span{color:var(--brass); font-style:italic;}
+  .header-cta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border:1px solid var(--ink);
+    padding:9px 18px;
+    border-radius:2px;
+    transition:background .2s ease, color .2s ease;
+    white-space:nowrap;
+  }
+  .header-cta:hover{background:var(--ink); color:var(--paper);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse 900px 500px at 78% -10%, rgba(200,155,92,0.14), transparent 60%),
+      var(--ink);
+    color:var(--text-on-ink);
+    padding:88px 32px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:720px; margin:0 auto;
+    display:block;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--brass-soft);
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px; height:1px;
+    background:var(--brass-soft);
+  }
+  .hero h1{
+    font-size:clamp(34px, 4.6vw, 56px);
+    line-height:1.08;
+    font-weight:450;
+    color:#FBF8F0;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--brass-soft);
+  }
+  .hero-sub{
+    margin-top:22px;
+    font-size:16.5px;
+    line-height:1.65;
+    color:var(--text-on-ink-dim);
+    max-width:46ch;
+  }
+  .credentials{
+    margin-top:30px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.05em;
+    color:var(--brass-soft);
+    border-top:1px solid rgba(237,231,216,0.18);
+    padding-top:16px;
+    line-height:2;
+  }
+  .credentials b{color:var(--text-on-ink); font-weight:500;}
+  .hero-actions{
+    margin-top:34px;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn-primary{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    background:var(--brass);
+    color:#1B1408;
+    padding:14px 26px;
+    border-radius:2px;
+    font-weight:500;
+    transition:transform .2s ease, background .2s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{background:var(--brass-soft); transform:translateY(-1px);}
+  .btn-ghost{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    color:var(--text-on-ink);
+    padding:14px 22px;
+    border:1px solid rgba(237,231,216,0.3);
+    border-radius:2px;
+    transition:border-color .2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--brass-soft);}
+
+  .hero-strip{
+    margin-top:64px;
+    border-top:1px solid rgba(237,231,216,0.14);
+    padding:20px 0;
+  }
+  .hero-strip .wrap{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    color:var(--text-on-ink-dim);
+    text-transform:uppercase;
+  }
+
+  /* ---------- SECTION: INTRO ---------- */
+  .intro{
+    padding:96px 32px 40px;
+  }
+  .intro-grid{
+    display:grid;
+    grid-template-columns:0.6fr 1.4fr;
+    gap:56px;
+  }
+  .portrait-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:4/5;
+    border:1px solid rgba(15,27,45,0.28);
+    border-radius:2px;
+    background:var(--paper-dim);
+    overflow:hidden;
+  }
+  .portrait-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .portrait-frame .placeholder{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:10px;
+    color:var(--text-on-paper-dim);
+  }
+  .portrait-frame .placeholder svg{width:40px; height:40px; opacity:0.5;}
+  .portrait-frame .placeholder span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .portrait-frame::before,
+  .portrait-frame::after{
+    content:"";
+    position:absolute;
+    width:14px; height:14px;
+    border-color:var(--brass);
+    border-style:solid;
+    z-index:2;
+  }
+  .portrait-frame::before{
+    top:8px; left:8px;
+    border-width:1.5px 0 0 1.5px;
+  }
+  .portrait-frame::after{
+    bottom:8px; right:8px;
+    border-width:0 1.5px 1.5px 0;
+  }
+  .portrait-caption{
+    margin-top:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-on-paper-dim);
+    text-align:center;
+  }
+  .intro-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--teal);
+    padding-top:6px;
+  }
+  .intro h2{
+    font-size:clamp(24px, 2.6vw, 32px);
+    line-height:1.35;
+    font-weight:450;
+    color:var(--ink);
+  }
+  .intro p{
+    margin-top:20px;
+    font-size:16px;
+    line-height:1.75;
+    color:var(--text-on-paper-dim);
+    max-width:62ch;
+  }
+
+  /* ---------- SECTION: ROUTES / WHERE I CAN HELP ---------- */
+  .routes{
+    padding:60px 32px 100px;
+  }
+  .routes-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:16px;
+    margin-bottom:44px;
+    border-bottom:1px solid rgba(15,27,45,0.14);
+    padding-bottom:20px;
+  }
+  .routes-head h2{
+    font-size:clamp(24px,2.6vw,32px);
+    color:var(--ink);
+    font-weight:450;
+  }
+  .routes-head .mono{
+    font-size:11.5px;
+    color:var(--text-on-paper-dim);
+    text-transform:uppercase;
+  }
+  .route-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .route-item{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:28px;
+    padding:30px 0;
+    border-bottom:1px solid rgba(15,27,45,0.1);
+    transition:padding-left .25s ease;
+  }
+  .route-item:hover{padding-left:10px;}
+  .route-item:first-child{padding-top:0;}
+  .bearing{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.06em;
+    color:var(--brass);
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    padding-top:4px;
+  }
+  .bearing .deg{
+    color:var(--text-on-paper-dim);
+    font-size:11px;
+  }
+  .route-item h3{
+    font-size:19px;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .route-item p{
+    margin:10px 0 0;
+    font-size:15px;
+    line-height:1.65;
+    color:var(--text-on-paper-dim);
+    max-width:58ch;
+  }
+
+  /* ---------- CTA / TICKET ---------- */
+  .cta{
+    background:var(--ink);
+    color:var(--text-on-ink);
+    padding:90px 32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .ticket{
+    max-width:760px;
+    margin:0 auto;
+    background:var(--paper);
+    color:var(--text-on-paper);
+    border-radius:4px;
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr auto;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+  }
+  .ticket-main{
+    padding:44px 40px;
+  }
+  .ticket-stub{
+    padding:44px 30px;
+    border-left:2px dashed rgba(15,27,45,0.22);
+    display:flex; flex-direction:column; justify-content:space-between;
+    min-width:180px;
+    background:var(--paper-dim);
+  }
+  .ticket-stub .mono{font-size:10.5px; color:var(--text-on-paper-dim); text-transform:uppercase; letter-spacing:0.08em;}
+  .ticket-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:14px;
+  }
+  .ticket h2{
+    font-size:clamp(22px,3vw,28px);
+    color:var(--ink);
+    font-weight:450;
+  }
+  .ticket p{
+    margin-top:16px;
+    font-size:15px;
+    line-height:1.65;
+    color:var(--text-on-paper-dim);
+    max-width:44ch;
+  }
+  .ticket-email{
+    margin-top:26px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    text-decoration:none;
+    color:var(--ink);
+    border-bottom:1px solid var(--brass);
+    padding-bottom:3px;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .ticket-email:hover{color:var(--teal); border-color:var(--teal);}
+  .stamp{
+    width:56px; height:56px;
+    border:1.5px solid var(--brass);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9px;
+    letter-spacing:0.05em;
+    text-align:center;
+    color:var(--brass);
+    line-height:1.3;
+    transform:rotate(-8deg);
+    align-self:flex-end;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:36px 32px 44px;
+    background:var(--ink);
+    border-top:1px solid rgba(237,231,216,0.12);
+  }
+  .footer-inner{
+    max-width:1120px; margin:0 auto;
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:12px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--text-on-ink-dim);
+    letter-spacing:0.04em;
+  }
+  footer a{text-decoration:none;}
+  footer a:hover{color:var(--brass-soft);}
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:860px){
+    .intro-grid{grid-template-columns:1fr; gap:18px;}
+    .route-item{grid-template-columns:70px 1fr; gap:16px;}
+    .ticket{grid-template-columns:1fr;}
+    .ticket-stub{border-left:none; border-top:2px dashed rgba(15,27,45,0.22); flex-direction:row; align-items:center;}
+    .stamp{align-self:center;}
+    .header-cta{display:none;}
+  }
+  @media (max-width:520px){
+    .wrap, .hero-inner, .intro, .routes, .cta{padding-left:20px; padding-right:20px;}
+    .header-inner{padding:16px 20px;}
+    .ticket-main{padding:34px 26px;}
+    .ticket-stub{padding:26px;}
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">Anushka Dissanayake <span>· Career Coaching</span></div>
+    <a class="header-cta" href="#get-started">Book a free call</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Career Coaching &amp; Mentoring</div>
+      <h1>Find your bearings,<br>at every career <em>crossing</em>.</h1>
+      <p class="hero-sub">Twenty years navigating global corporate careers across three countries — now guiding yours. Strategic insight and hands-on mentoring for the next stretch of the journey, wherever it's headed.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#get-started">Book your first appointment — on me</a>
+        <a class="btn-ghost" href="#routes">See where I can help</a>
+      </div>
+      <div class="credentials">
+        <b>CPA</b> &nbsp;·&nbsp; <b>ACMA, CIMA (UK)</b> &nbsp;·&nbsp; <b>20+ years finance leadership</b><br>
+        Based across Australia · Sri Lanka · United Kingdom
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-strip">
+    <div class="wrap">
+      <span>Est. career finance leadership · 20+ yrs</span>
+      <span>Free first conversation, always</span>
+      <span>anushkad@gmail.com</span>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div class="intro-label reveal">01 / About</div>
+    <div class="reveal" style="display:grid; grid-template-columns:200px 1fr; gap:40px; align-items:start;">
+      <div>
+        <!--
+          PHOTO SLOT: replace the placeholder div below with, e.g.:
+          <img src="your-photo.jpg" alt="Anushka Dissanayake">
+          Best fit: a portrait crop, roughly 4:5 (taller than wide).
+        -->
+        <div class="portrait-frame">
+          <div class="placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+            <span>Photo coming soon</span>
+          </div>
+        </div>
+        <div class="portrait-caption">Anushka Dissanayake</div>
+      </div>
+      <div>
+        <h2>I've changed roles, changed companies, changed countries — and led people through the same.</h2>
+        <p>Across Australia, Sri Lanka and the UK, I've stepped outside my comfort zone to move into new organisations, led offshore process transitions, and built teams from the ground up. Along the way I've coached team members into more senior roles, served as a trusted finance partner to senior leaders, and led through major organisational change.</p>
+        <p>As a migrant myself, I know first-hand what it takes to build a career from scratch in a new country — and I now bring that strategic insight and hands-on mentoring to help you navigate yours, wherever you're headed next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="routes" id="routes">
+  <div class="wrap">
+    <div class="routes-head reveal">
+      <h2>Where I can help</h2>
+      <span class="mono">Five routes, one guide</span>
+    </div>
+
+    <div class="route-list">
+      <div class="route-item reveal">
+        <div class="bearing">N <span class="deg">000°</span></div>
+        <div>
+          <h3>New to Corporate Australia</h3>
+          <p>Practical, culturally-attuned guidance for skilled migrants building a career in a new country — from unwritten workplace rules to landing your first role.</p>
+        </div>
+      </div>
+
+      <div class="route-item reveal">
+        <div class="bearing">NE <span class="deg">045°</span></div>
+        <div>
+          <h3>Career Progression</h3>
+          <p>A clear plan to move up, negotiate with confidence, and position yourself for the role you actually want next.</p>
+        </div>
+      </div>
+
+      <div class="route-item reveal">
+        <div class="bearing">E <span class="deg">090°</span></div>
+        <div>
+          <h3>Navigating Different Work Cultures</h3>
+          <p>Build the confidence and influence to work well across teams, industries and countries — without losing what makes you, you.</p>
+        </div>
+      </div>
+
+      <div class="route-item reveal">
+        <div class="bearing">SE <span class="deg">135°</span></div>
+        <div>
+          <h3>Stepping Outside Your Comfort Zone</h3>
+          <p>Structured support to take a bold next step — a stretch role, a new industry, or simply more visibility.</p>
+        </div>
+      </div>
+
+      <div class="route-item reveal">
+        <div class="bearing">S <span class="deg">180°</span></div>
+        <div>
+          <h3>Navigating Redundancy</h3>
+          <p>A steady hand and a practical plan to turn disruption into clarity, and clarity into your next chapter.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="get-started">
+  <div class="ticket reveal">
+    <div class="ticket-main">
+      <div class="ticket-eyebrow">Get Started</div>
+      <h2>Book your first appointment — on me.</h2>
+      <p>Not sure where to start? Let's have a free first conversation to map out exactly which package suits you best.</p>
+      <a class="ticket-email" href="mailto:anushkad@gmail.com">anushkad@gmail.com →</a>
+    </div>
+    <div class="ticket-stub">
+      <div>
+        <div class="mono">Session</div>
+        <div style="font-family:'Fraunces',serif; font-size:19px; margin-top:4px;">First call</div>
+      </div>
+      <div class="stamp">NO<br>CHARGE</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>Anushka Dissanayake — Career Coaching &amp; Mentoring</span>
+    <a href="mailto:anushkad@gmail.com">anushkad@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
